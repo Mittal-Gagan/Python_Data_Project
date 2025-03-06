@@ -15,7 +15,7 @@
 # Required Job Skills
 ## Analysis 
 #### Finding the most popular skills in job postings required some basic filtering of the dataframe followed by exploding the job skills list into individual rows. After adjusting the dataframe to what I needed I plotted the data into bar charts with each bar representing a different skill. 
-#### View the notebook with detailed steps [here](3_Skills_Demand.ipynb)]:
+#### View the notebook with detailed steps [here](3_Skills_Demand.ipynb)
 
 
 ![Visualization of skills percentages](images/skill_demand_percentages.png)
