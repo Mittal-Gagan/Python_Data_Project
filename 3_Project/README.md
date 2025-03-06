@@ -8,6 +8,7 @@
 - Numpy
 
 
+
 #### Video Link:  https://www.youtube.com/watch?v=wUSDVGivd-8&t=20753s 
 
 #### Github Link: https://github.com/lukebarousse
@@ -15,6 +16,36 @@
 # Required Job Skills
 ## Analysis 
 #### Finding the most popular skills in job postings required some basic filtering of the dataframe followed by exploding the job skills list into individual rows. After adjusting the dataframe to what I needed I plotted the data into bar charts with each bar representing a different skill. 
+``` python
+job_titles = df_skills_count['job_title_short'].unique().tolist()
+
+job_titles = sorted(job_titles[:3])
+
+fig, ax = plt.subplots(len(job_titles), 1)
+sns.set_theme(style='ticks')
+
+#Creating a for loop to plot each seperate job_title that I mentioned in my list
+
+for i, job_title in enumerate(job_titles):
+    df_plot = df_skills_perc[df_skills_perc['job_title_short'] == job_title].head()
+    sns.barplot(data=df_plot, x='skill_percent', y='job_skills', ax=ax[i], hue='skill_percent', palette='dark:r_r')
+    ax[i].set_title(job_title)
+    ax[i].set_ylabel('')
+    ax[i].set_xlabel('')
+    ax[i].legend().set_visible(False)
+    ax[i].set_xlim(0,78)
+    
+    if i != len(job_titles) - 1:
+        ax[i].set_xticks([])
+    
+    for n, v in enumerate(df_plot['skill_percent']):
+        ax[i].text(v + 1, n, f'{v:.0f}%', va = 'center')
+
+
+fig.suptitle(f'Likelihood of Skills Requested in Top {len(job_titles)} Postings', fontsize=14)
+fig.tight_layout(h_pad=0.5)
+plt.show()
+```
 #### View the notebook with detailed steps [[here](3_Skills_Demand.ipynb)]:
 
 
@@ -26,7 +57,24 @@
 # Trends of Job Skills 
 ## Analysis 
 #### It is important to know what job skills are required for certain roles, but what if certain skills are not as useful as time goes on? I wanted to observe the trend of job skils for data analyst roles. To do this I filtered my data for Data Analyst roles in the United States. After doing this I created a pivot table showing counts of job skills by the month. After getting my final dataframe, I filtered my data for the top 5 most prevalent skills and created a line chart using the seaborn library.
+``` python
+df_plot = df_da_us_percent.iloc[:,:5]
 
+sns.lineplot(data=df_plot, dashes=False, palette='tab10')
+sns.set_theme(style='ticks')
+sns.despine()
+
+plt.title('Trending Skills for Data Analysts in the US')
+plt.ylabel('Likelihood in Job Posting')
+plt.xlabel('2023')
+
+from matplotlib.ticker import PercentFormatter
+ax = plt.gca()
+ax.yaxis.set_major_formatter(PercentFormatter(decimals=0))
+
+
+plt.tight_layout()
+```
 #### View the notebook with detailed steps [here](4_Skills_Trends.ipynb)
 ![job skills trend viz](images/skills_trend.png)
 
@@ -36,6 +84,35 @@
 # Salary Analysis 
 ## Analysis
 #### Similar to previous notebooks, in this notebook I wanted to do some more analysis on Data Analyst jobs in the United States. I created two seperate dataframes with the Top 10 most common skills for data analysts and the Top 10 skills with the highest median salaries.
+``` python 
+#Creating a subplot
+fig, ax =plt.subplots(2,1)
+
+
+sns.set_theme(style='ticks')
+
+
+sns.barplot(data=df_da_top_pay, x='median', y=df_da_top_pay.index, ax=ax[0], hue='median', palette='dark:b_r', legend=False)
+
+ax[0].set_title('Top 10 Highest Paid Skills for Data Analyst')
+ax[0].set_ylabel(' ')
+ax[0].set_xlabel(' ')
+ax[0].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${int(x/1000)}K'))
+
+
+sns.barplot(data=df_da_skills, x='median', y=df_da_skills.index, ax=ax[1], hue='median', palette='light:b', legend=False)
+
+ax[1].set_title('Top 10 in Demand Skills for Data Analyst')
+ax[1].set_ylabel(' ')
+ax[1].set_xlabel('Median Salary')
+ax[1].xaxis.set_major_formatter(plt.FuncFormatter(lambda x, _: f'${int(x/1000)}K'))
+
+
+#changing the xlim for both figures by set_xlim on the bottom plot to match the current xlim of top plot
+ax[1].set_xlim(ax[0].get_xlim())
+
+fig.tight_layout()
+```
 #### View the notebook with detailed steps [here](5_Salary_Analysis.ipynb)
 
 ![salary viz](images/salary_viz.png)
