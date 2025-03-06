@@ -1,5 +1,5 @@
 # Introduction 
-#### I started this project to practice and brush up on skills in Python and relevant libraries required for Data Analysis while also learning some new skills. I have noticed that the ability to  leverage Python is important and companies everyday are requiring their data analysts to learn how to utilize this powerful tool. So I created this repository to showcase my core Python Skills for employers. For my first project, I recreated a project that was done by Luke Barousse who is a Youtuber that posts valuable info and tutorials on data analytics. I have linked the video I used for this project along with Luke's Github below! 
+#### I started this project to practice and brush up on skills in Python and relevant libraries required for Data Analysis, while also learning some new skills. I have noticed that the ability to  leverage Python is important and companies everyday are requiring their data analysts to learn how to utilize this powerful tool. So I created this repository to showcase my core Python Skills for employers. For my first project, I recreated a project that was done by Luke Barousse who is a Youtuber that posts valuable info and tutorials on data analytics. I have linked the video I used for this project along with Luke's Github below! 
 
 ### Libraries Used:
 - Matplotlib
@@ -46,7 +46,7 @@ fig.suptitle(f'Likelihood of Skills Requested in Top {len(job_titles)} Postings'
 fig.tight_layout(h_pad=0.5)
 plt.show()
 ```
-#### View the notebook with detailed steps [[here](3_Skills_Demand.ipynb)]:
+#### View the notebook with detailed steps [here](3_Skills_Demand.ipynb)
 
 
 ![Visualization of skills percentages](images/skill_demand_percentages.png)
