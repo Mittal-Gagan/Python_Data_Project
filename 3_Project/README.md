@@ -1,5 +1,5 @@
 # Introduction 
-#### I started this project to showcase and practice skills in Python and relevant Python libraries for data analytics. The ability to utilize methods in Pandas to manipulate dataframes, using Matplotlib and Seaborn to create visualizations and Numpy for numerical analysis are all showcased in this project.
+#### I started this project to showcase and practice skills in Python and relevant Python libraries for data analytics. For this project I use a dataset with job postings from 2023 and their associated data (Country, Job Type, Job Skills, Salaries). The ability to utilize methods in Pandas to manipulate dataframes, using Matplotlib and Seaborn to create visualizations and Numpy for numerical analysis are all showcased in this project. 
 
 ### Libraries Used:
 - Matplotlib
