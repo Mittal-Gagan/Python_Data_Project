@@ -83,7 +83,7 @@ plt.tight_layout()
 
 # Salary Analysis 
 ## Analysis
-#### Similar to previous notebooks, in this notebook I wanted to do some more analysis on Data Analyst jobs in the United States. I created two seperate dataframes with the Top 10 most common skills for data analysts and the Top 10 skills with the highest median salaries.
+#### Similar to previous notebooks, in this notebook I wanted to do some more analysis on Data Analyst jobs in the United States. I created two seperate dataframes with the Top 10 most common skills for data analysts and the Top 10 skills with the highest median salaries. Additionally I wanted to create a visualization to demonstrate which of the common data jobs are the most lucrative to get into. To do this I utilized the boxplot method from the seaborn library. 
 ``` python 
 #Creating a subplot
 fig, ax =plt.subplots(2,1)
@@ -119,3 +119,19 @@ fig.tight_layout()
 
 ## Insights
 #### Its important to note that the skills that match with the highest median salaries are not exactly the most accurate. Diving deeper into the data we notice that the number of job postings with the highest median salaries are quite low. The sample size of the data is too small to make any conclusions about the data. What we notice from the lower subplot is that knowing Python, Tableau and R will be beneficial in getting a higher salary whereas Microsoft tools like Powerpoing, Excel and Word are typically not as valuable to learn.
+``` python
+sns.boxplot(data=df_us_top6, x='salary_year_avg', y='job_title_short', order=job_order)
+sns.set_theme(style='ticks')
+
+plt.title('Salary Distibution in the US')
+plt.xlabel('Yearly Salary ($)')
+plt.ylabel('')
+ax = plt.gca()
+ax.xaxis.set_major_formatter(plt.FuncFormatter(lambda x, pos: f'${int(x/1000)}K'))
+plt.xlim(0,600000)
+plt.show()
+```
+![boxplot](images/salary_boxplot_viz.png) 
+
+## Insights
+#### If we take a quick look at this boxplot we can easily see that the salaries of Senior Data Scientist and Senior Data Engineers pay the most. Additionally Data Engineers and Data Scientists pay more than  Senior Data Analyst roles which is a bit surprising. Looking into this data it might conclude that if a job seeker was looking to enter a role that was paying a lot of money it would be beneficial to try to become a Data Engineer or a Data Scientist 
