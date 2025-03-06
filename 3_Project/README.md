@@ -1,5 +1,5 @@
 # Introduction 
-#### I started this project to practice and brush up on skills in Python and relevant libraries required for Data Analysis, while also learning some new skills. I have noticed that the ability to  leverage Python is important and companies everyday are requiring their data analysts to learn how to utilize this powerful tool. So I created this repository to showcase my core Python Skills for employers. For my first project, I recreated a project that was done by Luke Barousse who is a Youtuber that posts valuable info and tutorials on data analytics. I have linked the video I used for this project along with Luke's Github below! 
+#### I started this project to showcase and practice skills in Python and relevant Python libraries for data analytics. The ability to utilize methods in Pandas to manipulate dataframes, Matplotlib and Seaborn to create visiualizations and Numpy for numerical analysis is all showcased in this project.
 
 ### Libraries Used:
 - Matplotlib
@@ -7,11 +7,6 @@
 - Seaborn 
 - Numpy
 
-
-
-#### Video Link:  https://www.youtube.com/watch?v=wUSDVGivd-8&t=20753s 
-
-#### Github Link: https://github.com/lukebarousse
 
 # Required Job Skills
 ## Analysis 
